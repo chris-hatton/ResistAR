@@ -8,10 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		83449F7219A20E7000DE33AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83449F7119A20E7000DE33AA /* AppDelegate.swift */; };
-		83449F7419A20E7000DE33AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83449F7319A20E7000DE33AA /* ViewController.swift */; };
+		83449F7419A20E7000DE33AA /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83449F7319A20E7000DE33AA /* ScannerViewController.swift */; };
 		83449F7719A20E7000DE33AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83449F7519A20E7000DE33AA /* Main.storyboard */; };
 		83449F7919A20E7000DE33AA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83449F7819A20E7000DE33AA /* Images.xcassets */; };
 		83449F8519A20E7000DE33AA /* ResistARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83449F8419A20E7000DE33AA /* ResistARTests.swift */; };
+		83449F9119A2168100DE33AA /* Resistor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83449F9019A2168100DE33AA /* Resistor.swift */; };
+		83449F9319A21DC000DE33AA /* BandScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83449F9219A21DC000DE33AA /* BandScanner.swift */; };
+		836DF96919B9FB10004E6153 /* ColorSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836DF96819B9FB10004E6153 /* ColorSpace.swift */; };
+		836DF96B19B9FEBE004E6153 /* CVImageBuffer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836DF96A19B9FEBE004E6153 /* CVImageBuffer+Extensions.swift */; };
+		8374A30119BC7F3E001F2C62 /* Pixels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8374A30019BC7F3E001F2C62 /* Pixels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,12 +33,17 @@
 		83449F6C19A20E7000DE33AA /* ResistAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResistAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83449F7019A20E7000DE33AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83449F7119A20E7000DE33AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		83449F7319A20E7000DE33AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		83449F7319A20E7000DE33AA /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		83449F7619A20E7000DE33AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		83449F7819A20E7000DE33AA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		83449F7E19A20E7000DE33AA /* ResistARTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ResistARTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83449F8319A20E7000DE33AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83449F8419A20E7000DE33AA /* ResistARTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResistARTests.swift; sourceTree = "<group>"; };
+		83449F9019A2168100DE33AA /* Resistor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resistor.swift; sourceTree = "<group>"; };
+		83449F9219A21DC000DE33AA /* BandScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandScanner.swift; sourceTree = "<group>"; };
+		836DF96819B9FB10004E6153 /* ColorSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSpace.swift; sourceTree = "<group>"; };
+		836DF96A19B9FEBE004E6153 /* CVImageBuffer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CVImageBuffer+Extensions.swift"; sourceTree = "<group>"; };
+		8374A30019BC7F3E001F2C62 /* Pixels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pixels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +85,10 @@
 		83449F6E19A20E7000DE33AA /* ResistAR */ = {
 			isa = PBXGroup;
 			children = (
+				83449F8F19A2159700DE33AA /* Model */,
+				83449F8E19A20F3000DE33AA /* Process */,
 				83449F7119A20E7000DE33AA /* AppDelegate.swift */,
-				83449F7319A20E7000DE33AA /* ViewController.swift */,
+				83449F7319A20E7000DE33AA /* ScannerViewController.swift */,
 				83449F7519A20E7000DE33AA /* Main.storyboard */,
 				83449F7819A20E7000DE33AA /* Images.xcassets */,
 				83449F6F19A20E7000DE33AA /* Supporting Files */,
@@ -107,6 +119,25 @@
 				83449F8319A20E7000DE33AA /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83449F8E19A20F3000DE33AA /* Process */ = {
+			isa = PBXGroup;
+			children = (
+				83449F9219A21DC000DE33AA /* BandScanner.swift */,
+				836DF96819B9FB10004E6153 /* ColorSpace.swift */,
+				836DF96A19B9FEBE004E6153 /* CVImageBuffer+Extensions.swift */,
+			);
+			name = Process;
+			sourceTree = "<group>";
+		};
+		83449F8F19A2159700DE33AA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				83449F9019A2168100DE33AA /* Resistor.swift */,
+				8374A30019BC7F3E001F2C62 /* Pixels.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,8 +239,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83449F7419A20E7000DE33AA /* ViewController.swift in Sources */,
+				836DF96B19B9FEBE004E6153 /* CVImageBuffer+Extensions.swift in Sources */,
+				83449F9119A2168100DE33AA /* Resistor.swift in Sources */,
+				836DF96919B9FB10004E6153 /* ColorSpace.swift in Sources */,
+				83449F7419A20E7000DE33AA /* ScannerViewController.swift in Sources */,
 				83449F7219A20E7000DE33AA /* AppDelegate.swift in Sources */,
+				8374A30119BC7F3E001F2C62 /* Pixels.swift in Sources */,
+				83449F9319A21DC000DE33AA /* BandScanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +362,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = ResistAR/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -337,6 +374,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = ResistAR/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -395,6 +433,7 @@
 				83449F8A19A20E7000DE33AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83449F8B19A20E7000DE33AA /* Build configuration list for PBXNativeTarget "ResistARTests" */ = {
 			isa = XCConfigurationList;
@@ -403,6 +442,7 @@
 				83449F8D19A20E7000DE33AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
