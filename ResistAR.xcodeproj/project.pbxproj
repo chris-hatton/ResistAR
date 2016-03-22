@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8327889D1B5FA74E00F0BAA0 /* SwiftImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 832788921B5FA71900F0BAA0 /* SwiftImage.framework */; };
+		8327889E1B5FA75300F0BAA0 /* SwiftVision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F62CBC1B5FA6F90013E410 /* SwiftVision.framework */; };
+		832788A01B5FA76B00F0BAA0 /* SwiftImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 832788921B5FA71900F0BAA0 /* SwiftImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		832788A11B5FA76C00F0BAA0 /* SwiftVision.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83F62CBC1B5FA6F90013E410 /* SwiftVision.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		83449F7219A20E7000DE33AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83449F7119A20E7000DE33AA /* AppDelegate.swift */; };
 		83449F7419A20E7000DE33AA /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83449F7319A20E7000DE33AA /* ScannerViewController.swift */; };
 		83449F7719A20E7000DE33AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83449F7519A20E7000DE33AA /* Main.storyboard */; };
@@ -14,12 +18,38 @@
 		83449F8519A20E7000DE33AA /* ResistARTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83449F8419A20E7000DE33AA /* ResistARTests.swift */; };
 		83449F9119A2168100DE33AA /* Resistor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83449F9019A2168100DE33AA /* Resistor.swift */; };
 		83449F9319A21DC000DE33AA /* BandScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83449F9219A21DC000DE33AA /* BandScanner.swift */; };
-		836DF96919B9FB10004E6153 /* ColorSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836DF96819B9FB10004E6153 /* ColorSpace.swift */; };
-		836DF96B19B9FEBE004E6153 /* CVImageBuffer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836DF96A19B9FEBE004E6153 /* CVImageBuffer+Extensions.swift */; };
-		8374A30119BC7F3E001F2C62 /* Pixels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8374A30019BC7F3E001F2C62 /* Pixels.swift */; };
+		83F1805C19D58ACE0074A99D /* CVPixelBufferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F1805B19D58ACE0074A99D /* CVPixelBufferView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		832788911B5FA71900F0BAA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8327888C1B5FA71900F0BAA0 /* SwiftImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 83C490291B5E6BAB00C54BE7;
+			remoteInfo = SwiftImage;
+		};
+		832788931B5FA71900F0BAA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8327888C1B5FA71900F0BAA0 /* SwiftImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 83C490341B5E6BAC00C54BE7;
+			remoteInfo = SwiftImageTests;
+		};
+		832788991B5FA74800F0BAA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8327888C1B5FA71900F0BAA0 /* SwiftImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 83C490281B5E6BAB00C54BE7;
+			remoteInfo = SwiftImage;
+		};
+		8327889B1B5FA74800F0BAA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83F62CB61B5FA6F80013E410 /* SwiftVision.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 831F365D1B5B936C00109C68;
+			remoteInfo = SwiftVision;
+		};
 		83449F7F19A20E7000DE33AA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83449F6419A20E7000DE33AA /* Project object */;
@@ -27,9 +57,38 @@
 			remoteGlobalIDString = 83449F6B19A20E7000DE33AA;
 			remoteInfo = ResistAR;
 		};
+		83F62CBB1B5FA6F90013E410 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83F62CB61B5FA6F80013E410 /* SwiftVision.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 831F365E1B5B936C00109C68;
+			remoteInfo = SwiftVision;
+		};
+		83F62CBD1B5FA6F90013E410 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83F62CB61B5FA6F80013E410 /* SwiftVision.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 831F36691B5B936C00109C68;
+			remoteInfo = SwiftVisionTests;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8327889F1B5FA75B00F0BAA0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				832788A01B5FA76B00F0BAA0 /* SwiftImage.framework in CopyFiles */,
+				832788A11B5FA76C00F0BAA0 /* SwiftVision.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		8327888C1B5FA71900F0BAA0 /* SwiftImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftImage.xcodeproj; path = ../SwiftImage/SwiftImage.xcodeproj; sourceTree = "<group>"; };
 		83449F6C19A20E7000DE33AA /* ResistAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ResistAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83449F7019A20E7000DE33AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83449F7119A20E7000DE33AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,9 +100,8 @@
 		83449F8419A20E7000DE33AA /* ResistARTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResistARTests.swift; sourceTree = "<group>"; };
 		83449F9019A2168100DE33AA /* Resistor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resistor.swift; sourceTree = "<group>"; };
 		83449F9219A21DC000DE33AA /* BandScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandScanner.swift; sourceTree = "<group>"; };
-		836DF96819B9FB10004E6153 /* ColorSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSpace.swift; sourceTree = "<group>"; };
-		836DF96A19B9FEBE004E6153 /* CVImageBuffer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CVImageBuffer+Extensions.swift"; sourceTree = "<group>"; };
-		8374A30019BC7F3E001F2C62 /* Pixels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pixels.swift; sourceTree = "<group>"; };
+		83F1805B19D58ACE0074A99D /* CVPixelBufferView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVPixelBufferView.swift; sourceTree = "<group>"; };
+		83F62CB61B5FA6F80013E410 /* SwiftVision.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftVision.xcodeproj; path = ../SwiftVision/SwiftVision.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +109,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8327889E1B5FA75300F0BAA0 /* SwiftVision.framework in Frameworks */,
+				8327889D1B5FA74E00F0BAA0 /* SwiftImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,11 +124,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8327888D1B5FA71900F0BAA0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				832788921B5FA71900F0BAA0 /* SwiftImage.framework */,
+				832788941B5FA71900F0BAA0 /* SwiftImageTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		83449F6319A20E7000DE33AA = {
 			isa = PBXGroup;
 			children = (
 				83449F6E19A20E7000DE33AA /* ResistAR */,
 				83449F8119A20E7000DE33AA /* ResistARTests */,
+				83CC2BB61B5A948900A775AE /* Dependencies */,
 				83449F6D19A20E7000DE33AA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,10 +155,10 @@
 		83449F6E19A20E7000DE33AA /* ResistAR */ = {
 			isa = PBXGroup;
 			children = (
+				83F1805819D58A2A0074A99D /* UI */,
 				83449F8F19A2159700DE33AA /* Model */,
 				83449F8E19A20F3000DE33AA /* Process */,
 				83449F7119A20E7000DE33AA /* AppDelegate.swift */,
-				83449F7319A20E7000DE33AA /* ScannerViewController.swift */,
 				83449F7519A20E7000DE33AA /* Main.storyboard */,
 				83449F7819A20E7000DE33AA /* Images.xcassets */,
 				83449F6F19A20E7000DE33AA /* Supporting Files */,
@@ -125,8 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				83449F9219A21DC000DE33AA /* BandScanner.swift */,
-				836DF96819B9FB10004E6153 /* ColorSpace.swift */,
-				836DF96A19B9FEBE004E6153 /* CVImageBuffer+Extensions.swift */,
 			);
 			name = Process;
 			sourceTree = "<group>";
@@ -135,9 +203,51 @@
 			isa = PBXGroup;
 			children = (
 				83449F9019A2168100DE33AA /* Resistor.swift */,
-				8374A30019BC7F3E001F2C62 /* Pixels.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		83CC2BB61B5A948900A775AE /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				8327888C1B5FA71900F0BAA0 /* SwiftImage.xcodeproj */,
+				83F62CB61B5FA6F80013E410 /* SwiftVision.xcodeproj */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		83F1805819D58A2A0074A99D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				83F1805A19D58A340074A99D /* Controller */,
+				83F1805919D58A300074A99D /* View */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		83F1805919D58A300074A99D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				83F1805B19D58ACE0074A99D /* CVPixelBufferView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		83F1805A19D58A340074A99D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				83449F7319A20E7000DE33AA /* ScannerViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		83F62CB71B5FA6F80013E410 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83F62CBC1B5FA6F90013E410 /* SwiftVision.framework */,
+				83F62CBE1B5FA6F90013E410 /* SwiftVisionTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,10 +260,13 @@
 				83449F6819A20E7000DE33AA /* Sources */,
 				83449F6919A20E7000DE33AA /* Frameworks */,
 				83449F6A19A20E7000DE33AA /* Resources */,
+				8327889F1B5FA75B00F0BAA0 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8327889A1B5FA74800F0BAA0 /* PBXTargetDependency */,
+				8327889C1B5FA74800F0BAA0 /* PBXTargetDependency */,
 			);
 			name = ResistAR;
 			productName = ResistAR;
@@ -184,7 +297,9 @@
 		83449F6419A20E7000DE33AA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = AppDelegate;
 				TargetAttributes = {
 					83449F6B19A20E7000DE33AA = {
@@ -207,6 +322,16 @@
 			mainGroup = 83449F6319A20E7000DE33AA;
 			productRefGroup = 83449F6D19A20E7000DE33AA /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8327888D1B5FA71900F0BAA0 /* Products */;
+					ProjectRef = 8327888C1B5FA71900F0BAA0 /* SwiftImage.xcodeproj */;
+				},
+				{
+					ProductGroup = 83F62CB71B5FA6F80013E410 /* Products */;
+					ProjectRef = 83F62CB61B5FA6F80013E410 /* SwiftVision.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				83449F6B19A20E7000DE33AA /* ResistAR */,
@@ -214,6 +339,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		832788921B5FA71900F0BAA0 /* SwiftImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftImage.framework;
+			remoteRef = 832788911B5FA71900F0BAA0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		832788941B5FA71900F0BAA0 /* SwiftImageTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftImageTests.xctest;
+			remoteRef = 832788931B5FA71900F0BAA0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		83F62CBC1B5FA6F90013E410 /* SwiftVision.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftVision.framework;
+			remoteRef = 83F62CBB1B5FA6F90013E410 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		83F62CBE1B5FA6F90013E410 /* SwiftVisionTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftVisionTests.xctest;
+			remoteRef = 83F62CBD1B5FA6F90013E410 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		83449F6A19A20E7000DE33AA /* Resources */ = {
@@ -239,12 +395,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				836DF96B19B9FEBE004E6153 /* CVImageBuffer+Extensions.swift in Sources */,
+				83F1805C19D58ACE0074A99D /* CVPixelBufferView.swift in Sources */,
 				83449F9119A2168100DE33AA /* Resistor.swift in Sources */,
-				836DF96919B9FB10004E6153 /* ColorSpace.swift in Sources */,
 				83449F7419A20E7000DE33AA /* ScannerViewController.swift in Sources */,
 				83449F7219A20E7000DE33AA /* AppDelegate.swift in Sources */,
-				8374A30119BC7F3E001F2C62 /* Pixels.swift in Sources */,
 				83449F9319A21DC000DE33AA /* BandScanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +414,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8327889A1B5FA74800F0BAA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftImage;
+			targetProxy = 832788991B5FA74800F0BAA0 /* PBXContainerItemProxy */;
+		};
+		8327889C1B5FA74800F0BAA0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftVision;
+			targetProxy = 8327889B1B5FA74800F0BAA0 /* PBXContainerItemProxy */;
+		};
 		83449F8019A20E7000DE33AA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 83449F6B19A20E7000DE33AA /* ResistAR */;
@@ -299,6 +463,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -364,6 +529,7 @@
 				INFOPLIST_FILE = ResistAR/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appdelegate.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -376,6 +542,7 @@
 				INFOPLIST_FILE = ResistAR/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appdelegate.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -394,6 +561,7 @@
 				);
 				INFOPLIST_FILE = ResistARTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appdelegate.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -409,6 +577,7 @@
 				);
 				INFOPLIST_FILE = ResistARTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appdelegate.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};

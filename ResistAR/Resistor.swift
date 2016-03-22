@@ -10,6 +10,11 @@ import Foundation
 
 public class Resistor
 {
+    enum ResistorFormatException : ErrorType
+    {
+        case BandFormat
+    }
+    
     var
         value:     Int?   = nil,
         tolerance: Float? = nil
@@ -25,12 +30,12 @@ public class Resistor
         return _bands;
     }
     
-    func setBands(bands:[Band], inout error:NSError?) -> Bool
+    func setBands(bands:[Band]) throws
     {
-        return interpretBands(bands, value:&self.value, tolerance:&self.tolerance, error:&error);
+        try interpretBands(bands, value:&self.value, tolerance:&self.tolerance);
     }
     
-    private func interpretBands(bands:[Band], inout value:Int?, inout tolerance:Float?, inout error:NSError?) -> Bool
+    private func interpretBands(bands:[Band], inout value:Int?, inout tolerance:Float?) throws
     {
         let defaultTolerance : Float = 0.2
         
@@ -41,34 +46,30 @@ public class Resistor
             {
                 value     = nil
                 tolerance = nil
-                error     = NSError()
-                return false
+                throw ResistorFormatException.BandFormat
             }
             else
             {
-                var
-                    band1Value = bands[0].value!,
-                    band2Value = bands[1].value!,
-                    multiplier = pow(10,(Float)(bands[2].multiplier!))
+                let
+                    band1Value : Int = bands[0].value!,
+                    band2Value : Int = bands[1].value!,
+                    multiplier : Float = pow(10,(Float)(bands[2].multiplier!))
                 
-                value = Int(Float(band1Value * 10.0) + Float(band2Value) * multiplier)
+                value = Int( ( Float( band1Value ) * 10.0 ) + Float( band2Value ) * multiplier )
                 tolerance = 0.2;
-                error = nil
-                return true
+                return
             }
             
             case 4,5:
             value     = nil
             let specifiedTolerance : Float? = bands.last!.tolerance
             tolerance = specifiedTolerance ?? defaultTolerance
-            error     = NSError()
-            return false
+            throw ResistorFormatException.BandFormat
             
             default:
             value     = nil
             tolerance = nil
-            error     = NSError()
-            return false
+            throw ResistorFormatException.BandFormat
         }
     }
     
