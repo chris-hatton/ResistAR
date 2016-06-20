@@ -28,7 +28,7 @@ class CVPixelBufferView : UIView
                 width  = UInt( CVPixelBufferGetWidth (pixelBuffer!) )
                 height = UInt( CVPixelBufferGetHeight(pixelBuffer!) )
             
-                self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, CGFloat(width), CGFloat(height))
+                self.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: CGFloat(width), height: CGFloat(height))
             }
         }
     }
@@ -37,13 +37,13 @@ class CVPixelBufferView : UIView
         width  : UInt = 0,
         height : UInt = 0
     
-    override func drawRect(rect: CGRect)
+    override func draw(_ rect: CGRect)
     {
         if pixelBuffer != nil
         {
             let
                 context     = UIGraphicsGetCurrentContext(),
-                contextData = CGBitmapContextGetData(context),
+                contextData = context?.data,
                 pixelData   = CVPixelBufferGetBaseAddress(pixelBuffer!)
             
             CVPixelBufferLockBaseAddress(pixelBuffer!, 0)

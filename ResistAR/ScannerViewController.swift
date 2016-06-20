@@ -14,7 +14,7 @@ class ScannerViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
 {
     let
         captureSession : AVCaptureSession,
-        sampleQueue    : dispatch_queue_t
+        sampleQueue    : DispatchQueue
     
     @IBOutlet
     var cameraPreview : UIView?
@@ -25,7 +25,7 @@ class ScannerViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     required init?(coder: NSCoder)
     {
         self.captureSession       = AVCaptureSession()
-        self.sampleQueue          = dispatch_queue_create("ImageProcessQueue",nil)
+        self.sampleQueue          = DispatchQueue(label: "ImageProcessQueue",attributes: [])
         
         super.init(coder: coder)
     }
@@ -45,10 +45,10 @@ class ScannerViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     @IBAction
     func start()
     {
-        print("Starting... ", appendNewline: false);
+        print("Starting... ")
         
         let
-            captureDevice      = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo),
+            captureDevice      = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo),
             captureDeviceInput = try! AVCaptureDeviceInput(device:captureDevice),
             videoDataOutput    = AVCaptureVideoDataOutput()
         
@@ -59,9 +59,9 @@ class ScannerViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
             captureSession.addOutput(videoDataOutput)
             
             let previewLayer = AVCaptureVideoPreviewLayer(session:captureSession)
-            previewLayer.frame = cameraPreview!.bounds
-            previewLayer.contentsScale = 0.5
-            cameraPreview!.layer.addSublayer(previewLayer)
+            previewLayer?.frame = cameraPreview!.bounds
+            previewLayer?.contentsScale = 0.5
+            cameraPreview!.layer.addSublayer(previewLayer!)
             
             videoDataOutput.alwaysDiscardsLateVideoFrames = true
             
@@ -81,7 +81,7 @@ class ScannerViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         }
     }
     
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!)
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!)
     {
         let
             reticuleProportionalWidth  : CGFloat = 0.2,
@@ -96,10 +96,10 @@ class ScannerViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
             reticuleY      = (originalSize.height - reticuleHeight)/2
 
         let croppedBuffer = pixelBuffer.cropArea(
-            x:      UInt(reticuleX),
-            y:      UInt(reticuleY),
-            height: UInt(reticuleHeight),
-            width:  UInt(reticuleWidth)
+            x:      Int(reticuleX),
+            y:      Int(reticuleY),
+            height: Int(reticuleHeight),
+            width:  Int(reticuleWidth)
         )
         
         assert(croppedBuffer != nil, "Buffer failed to crop")

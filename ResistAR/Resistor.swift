@@ -10,9 +10,9 @@ import Foundation
 
 public class Resistor
 {
-    enum ResistorFormatException : ErrorType
+    enum ResistorFormatException : ErrorProtocol
     {
-        case BandFormat
+        case bandFormat
     }
     
     var
@@ -30,12 +30,12 @@ public class Resistor
         return _bands;
     }
     
-    func setBands(bands:[Band]) throws
+    func setBands(_ bands:[Band]) throws
     {
         try interpretBands(bands, value:&self.value, tolerance:&self.tolerance);
     }
     
-    private func interpretBands(bands:[Band], inout value:Int?, inout tolerance:Float?) throws
+    private func interpretBands(_ bands:[Band], value:inout Int?, tolerance:inout Float?) throws
     {
         let defaultTolerance : Float = 0.2
         
@@ -46,7 +46,7 @@ public class Resistor
             {
                 value     = nil
                 tolerance = nil
-                throw ResistorFormatException.BandFormat
+                throw ResistorFormatException.bandFormat
             }
             else
             {
@@ -64,12 +64,12 @@ public class Resistor
             value     = nil
             let specifiedTolerance : Float? = bands.last!.tolerance
             tolerance = specifiedTolerance ?? defaultTolerance
-            throw ResistorFormatException.BandFormat
+            throw ResistorFormatException.bandFormat
             
             default:
             value     = nil
             tolerance = nil
-            throw ResistorFormatException.BandFormat
+            throw ResistorFormatException.bandFormat
         }
     }
     
