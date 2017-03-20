@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import CoreMedia
+import SwiftImage
 
 class ScannerViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate
 {
@@ -42,8 +43,15 @@ class ScannerViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         // Dispose of any resources that can be recreated.
     }
     
+    private enum InitError : Error
+    {
+        case AddingCaptureDevice
+        case CreatingPreviewLayer
+    }
+    
+    
     @IBAction
-    func start()
+    func start() throws
     {
         print("Starting... ")
         
@@ -53,32 +61,28 @@ class ScannerViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
             videoDataOutput    = AVCaptureVideoDataOutput()
         
         
-        if captureSession.canAddInput(captureDeviceInput)
-        {
-            captureSession.addInput(captureDeviceInput)
-            captureSession.addOutput(videoDataOutput)
-            
-            let previewLayer = AVCaptureVideoPreviewLayer(session:captureSession)
-            previewLayer?.frame = cameraPreview!.bounds
-            previewLayer?.contentsScale = 0.5
-            cameraPreview!.layer.addSublayer(previewLayer!)
-            
-            videoDataOutput.alwaysDiscardsLateVideoFrames = true
-            
-            
-            let videoSettings = [ kCVPixelBufferPixelFormatTypeKey as NSString : Int( kCVPixelFormatType_32BGRA ) ]
-            videoDataOutput.videoSettings = videoSettings
-            videoDataOutput.setSampleBufferDelegate(self, queue:sampleQueue)
-            
-            captureSession.sessionPreset = AVCaptureSessionPreset640x480
-            captureSession.startRunning()
-            
-            print("Started");
-        }
-        else
-        {
-            print("Failed");
-        }
+        guard captureSession.canAddInput(captureDeviceInput) else { throw InitError.AddingCaptureDevice }
+
+        captureSession.addInput(captureDeviceInput)
+        captureSession.addOutput(videoDataOutput)
+        
+        guard let previewLayer = AVCaptureVideoPreviewLayer(session:captureSession) else { throw InitError.CreatingPreviewLayer }
+        
+        previewLayer.frame = cameraPreview!.bounds
+        previewLayer.contentsScale = 0.5
+        cameraPreview!.layer.addSublayer(previewLayer)
+        
+        videoDataOutput.alwaysDiscardsLateVideoFrames = true
+        
+        
+        let videoSettings = [ kCVPixelBufferPixelFormatTypeKey as NSString : Int( kCVPixelFormatType_32BGRA ) ]
+        videoDataOutput.videoSettings = videoSettings
+        videoDataOutput.setSampleBufferDelegate(self, queue:sampleQueue)
+        
+        captureSession.sessionPreset = AVCaptureSessionPreset640x480
+        captureSession.startRunning()
+        
+        print("Started")
     }
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!)
@@ -87,22 +91,25 @@ class ScannerViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
             reticuleProportionalWidth  : CGFloat = 0.2,
             reticuleProportionalHeight : CGFloat = 0.1
 
+        guard let imageBuffer : CVImageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+        
+        let pixelBuffer : CVPixelBuffer = imageBuffer as CVPixelBuffer
+        
         let
-            pixelBuffer    = CMSampleBufferGetImageBuffer(sampleBuffer)! as CVPixelBuffer,
             originalSize   = CVImageBufferGetEncodedSize(pixelBuffer),
             reticuleWidth  = reticuleProportionalWidth  * originalSize.width,
             reticuleHeight = reticuleProportionalHeight * originalSize.height,
             reticuleX      = (originalSize.width  - reticuleWidth )/2,
             reticuleY      = (originalSize.height - reticuleHeight)/2
-
+        
         let croppedBuffer = pixelBuffer.cropArea(
             x:      Int(reticuleX),
             y:      Int(reticuleY),
             height: Int(reticuleHeight),
-            width:  Int(reticuleWidth)
+            width:  Int(reticuleWidth),
+            outputWidth: Int(reticuleHeight),
+            outputHeight: Int(reticuleWidth)
         )
-        
-        assert(croppedBuffer != nil, "Buffer failed to crop")
         
         pixelBufferView!.pixelBuffer = croppedBuffer
     }

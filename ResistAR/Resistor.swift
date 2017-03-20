@@ -10,7 +10,7 @@ import Foundation
 
 public class Resistor
 {
-    enum ResistorFormatException : ErrorProtocol
+    enum ResistorFormatException : Error
     {
         case bandFormat
     }

@@ -17,7 +17,7 @@ class CVPixelBufferView : UIView
         {
             if newValue != nil
             {
-                assert( CVPixelBufferGetPixelFormatType(newValue!) == OSType(kCVPixelFormatType_32BGRA), "\(self.dynamicType) only supports kCVPixelFormatType_32BGRA formatted CVPixelBuffers")
+                assert( CVPixelBufferGetPixelFormatType(newValue!) == OSType(kCVPixelFormatType_32BGRA), "\(type(of: self)) only supports kCVPixelFormatType_32BGRA formatted CVPixelBuffers")
             }
         }
         
@@ -46,9 +46,9 @@ class CVPixelBufferView : UIView
                 contextData = context?.data,
                 pixelData   = CVPixelBufferGetBaseAddress(pixelBuffer!)
             
-            CVPixelBufferLockBaseAddress(pixelBuffer!, 0)
+            CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: CVOptionFlags(0)))
             memcpy(contextData, pixelData, Int( 4 * width * height ) )
-            CVPixelBufferUnlockBaseAddress(pixelBuffer!, 0)
+            CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: CVOptionFlags(0)))
         }
     }
 }
